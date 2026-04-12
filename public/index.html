@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>カービィニュース</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⭐</span>
+        <h1>カービィニュース</h1>
+      </div>
+      <p class="tagline">最新のカービィ情報をお届け！</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="controls">
+      <button id="refreshBtn" class="btn-refresh">
+        <span class="btn-icon">🔄</span> ニュースを更新
+      </button>
+      <div class="filter-group">
+        <label for="langFilter">言語:</label>
+        <select id="langFilter">
+          <option value="all">すべて</option>
+          <option value="ja">日本語</option>
+          <option value="en">英語</option>
+        </select>
+      </div>
+      <span id="statusText" class="status-text"></span>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>カービィのニュースを探しています...</p>
+    </div>
+
+    <div id="error" class="error-box hidden">
+      <p id="errorMessage"></p>
+    </div>
+
+    <div id="noResults" class="no-results hidden">
+      <p>現在カービィ関連のニュースは見つかりませんでした。</p>
+      <p>しばらくしてからもう一度お試しください。</p>
+    </div>
+
+    <div id="newsList" class="news-grid"></div>
+  </main>
+
+  <footer>
+    <p>ニュースソース: Nintendo Life / Gematsu / Nintendo Everything / ファミ通 / 4Gamer</p>
+    <p>このアプリは各サイトの RSS フィードを利用しています。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
