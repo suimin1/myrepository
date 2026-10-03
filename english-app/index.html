@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>えいかいわドリル</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🗣️ えいかいわドリル</h1>
+    <p class="tagline">日本語を見て、英語で言ってみよう！（初心者向け）</p>
+  </header>
+
+  <main>
+    <!-- スタート画面 -->
+    <section id="startScreen" class="screen">
+      <h2>カテゴリを選ぶ</h2>
+      <div id="categoryList" class="category-grid"></div>
+      <div class="option-row">
+        <label for="questionCount">問題数:</label>
+        <select id="questionCount">
+          <option value="5">5問</option>
+          <option value="10" selected>10問</option>
+          <option value="20">20問</option>
+        </select>
+      </div>
+      <p id="totalStats" class="stats"></p>
+    </section>
+
+    <!-- 出題画面 -->
+    <section id="quizScreen" class="screen hidden">
+      <div class="quiz-top">
+        <button id="quitBtn" class="btn-text">← やめる</button>
+        <span id="progressText"></span>
+      </div>
+      <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+
+      <div class="card">
+        <p class="label">この日本語を英語にしてみよう</p>
+        <p id="jaText" class="ja-text"></p>
+        <p id="hintText" class="hint hidden"></p>
+
+        <div class="answer-row">
+          <input id="answerInput" type="text" autocomplete="off" autocapitalize="off"
+                 spellcheck="false" placeholder="英語で入力してください" />
+          <button id="micBtn" class="btn-icon" title="声で答える" aria-label="声で答える">🎤</button>
+        </div>
+        <p id="micStatus" class="mic-status"></p>
+
+        <div class="button-row">
+          <button id="hintBtn" class="btn-secondary">💡 ヒント</button>
+          <button id="skipBtn" class="btn-secondary">わからない</button>
+          <button id="checkBtn" class="btn-primary">答え合わせ</button>
+        </div>
+
+        <div id="feedback" class="feedback hidden">
+          <p id="feedbackTitle" class="feedback-title"></p>
+          <div id="diffView" class="diff"></div>
+          <p class="model-label">模範解答:</p>
+          <p class="model-answer">
+            <span id="modelAnswer"></span>
+            <button id="speakBtn" class="btn-icon small" title="発音を聞く" aria-label="発音を聞く">🔊</button>
+          </p>
+          <p id="otherAnswers" class="other-answers"></p>
+          <button id="nextBtn" class="btn-primary wide">次へ →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="resultScreen" class="screen hidden">
+      <div class="card center">
+        <p class="label">結果</p>
+        <p id="resultScore" class="result-score"></p>
+        <p id="resultMessage"></p>
+      </div>
+      <div id="reviewBox" class="card hidden">
+        <h3>復習しよう</h3>
+        <ul id="reviewList" class="review-list"></ul>
+      </div>
+      <div class="button-row">
+        <button id="retryBtn" class="btn-secondary">間違えた問題だけ再挑戦</button>
+        <button id="homeBtn" class="btn-primary">カテゴリ選択へ</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="checker.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
